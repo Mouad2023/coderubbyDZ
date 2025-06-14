@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Code Rubby - User Guide</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+      <link rel="icon" type="image/png" href="{{ url_for('static', filename='icone.jpg') }}">
+  </head>
+  <body>
+      <div class="container">
+          <div class="header">
+              <h1>Code Rubby - User Guide</h1>
+              <button id="theme-toggle" class="theme-toggle" title="Toggle Theme"><span id="theme-icon"></span></button>
+          </div>
+          <div class="guide-content">
+              <h2>Welcome to Code Rubby</h2>
+              <p>Your AI-powered code generator using DeepSeek via Novita AI!</p>
+              <ul>
+                  <li><strong>Enter a Prompt</strong>: On the next page, type a coding request (e.g., "Create a login API in Flask") in the textarea.</li>
+                  <li><strong>Submit</strong>: Click "Generate" to get a response from DeepSeek.</li>
+                  <li><strong>View Results</strong>: The response appears below the form, with code formatted for clarity.</li>
+                  <li><strong>History</strong>: Past prompts and responses are shown in the "History" section, saved in your browser.</li>
+                  <li><strong>Theme Toggle</strong>: Switch between light and dark themes using the button above.</li>
+                  <li><strong>Clear History</strong>: Use the "Clear History" button to reset saved responses.</li>
+              </ul>
+              <a href="/index" class="guide-button">Get Started</a>
+          </div>
+      </div>
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+  </html>

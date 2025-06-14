@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Code Rubby</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+      <link rel="icon" type="image/png" href="{{ url_for('static', filename='icone.jpg') }}">
+  </head>
+  <body>
+      <header class="header">
+          <h1>Code Rubby</h1>
+          <button id="theme-toggle" class="theme-toggle" title="Toggle Theme"><span id="theme-icon"></span></button>
+      </header>
+      <div class="container">
+          <section class="card prompt-card">
+              <h2>Enter Your Prompt</h2>
+              <form method="POST" action="/index" class="prompt-form">
+                  <textarea name="prompt" id="prompt" placeholder="e.g., Create a login API in Flask"></textarea>
+                  <button type="submit">Generate</button>
+              </form>
+              {% if error %}
+                  <p class="error">{{ error }}</p>
+              {% endif %}
+          </section>
+          {% if response %}
+              <section class="card response-card">
+                  <h2>Response</h2>
+                  <h3>Prompt:</h3>
+                  <p class="prompt-text">{{ prompt }}</p>
+                  <h3>Output:</h3>
+                  <pre><code>{{ response }}</code></pre>
+              </section>
+          {% endif %}
+          <section class="card history-card">
+              <div class="history-header">
+                  <h2>History</h2>
+                  <button id="toggle-history" class="toggle-history">▼</button>
+              </div>
+              <div id="history-content" class="history-grid">
+                  <button id="clear-history" class="clear-history">Clear History</button>
+                  <div id="history-items"></div>
+              </div>
+          </section>
+      </div>
+      <div id="history-modal" class="modal">
+          <div class="modal-content">
+              <span id="modal-close" class="modal-close">×</span>
+              <h2>Prompt Details</h2>
+              <h3>Prompt:</h3>
+              <p id="modal-prompt" class="prompt-text"></p>
+              <h3>Response:</h3>
+              <pre><code id="modal-response"></code></pre>
+          </div>
+      </div>
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+  </html>
