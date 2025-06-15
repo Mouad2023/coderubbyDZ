@@ -6,7 +6,7 @@ class LLMClient:
     def __init__(self, api_key, site_url="https://your-site.com", site_name="Your Site Name"):
         self.api_key = api_key
         self.base_url = "https://api.novita.ai/v3/openai"
-        self.model = "deepseek/deepseek-r1-turbo"  # Novita AI model
+        self.model = "deepseek/deepseek-r1-turbo"
         self.client = OpenAI(
             api_key=api_key,
             base_url=self.base_url
